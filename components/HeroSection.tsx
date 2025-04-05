@@ -1,9 +1,9 @@
 // app/page.tsx or wherever your homepage is
 
 import SlackFeatureCard from "./SlackFeaturedCard";
-import "./HomePage.css"; // Import the CSS file
+import "./HeroSection.css"; // Import the CSS file
 
-export default function HomePage() {
+export default function HeroSection() {
   return (
     <section className="hero-section">
       {/* Background image */}

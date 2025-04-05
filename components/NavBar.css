@@ -1,8 +1,12 @@
 .navbar {
   width: 100%;
-  border-bottom: 1px solid rgb(229, 231, 235);
+  border-bottom: 1px solid #e5e7eb;
   background-color: #fff;
   padding: 16px 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .navbar-container {
@@ -44,16 +48,8 @@
   transition: transform 0.3s ease;
 }
 
-.burger-line.open:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-
-.burger-line.open:nth-child(2) {
-  opacity: 0;
-}
-
-.burger-line.open:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
+.burger-line.hide {
+  display: none;
 }
 
 .navbar-menu {
@@ -65,10 +61,10 @@
 
 @media (max-width: 768px) {
   .navbar-menu {
-    display: none; /* Initially hidden on mobile */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px; /* Adjust as needed */
+    top: 70px;
     left: 0;
     width: 100%;
     background-color: #fff;
@@ -78,11 +74,21 @@
   }
 
   .navbar-menu.open {
-    display: flex; /* Show menu when open */
+    display: flex;
+    align-items: flex-end;
   }
 
   .burger-menu {
-    display: flex; /* Show burger menu on mobile */
+    display: flex;
+  }
+
+  .close-btn.hide {
+    display: none;
+  }
+
+  .close-btn.show {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

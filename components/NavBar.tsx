@@ -21,9 +21,19 @@ export default function NavBar() {
 
         {/* Burger Menu Button (Mobile) */}
         <div className="burger-menu" onClick={toggleMenu}>
-          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
-          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
-          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`burger-line ${isMenuOpen ? "hide" : ""}`}></div>
+          <div className={`burger-line ${isMenuOpen ? "hide" : ""}`}></div>
+          <div className={`burger-line ${isMenuOpen ? "hide" : ""}`}></div>
+          <div className={`close-btn ${isMenuOpen ? "show" : "hide"}`}>
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#5627db">
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path d="M5 5L19 19M5 19L19 5" stroke="#5627db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>{" "}
+              </g>
+            </svg>
+          </div>
         </div>
 
         {/* Menu items */}
