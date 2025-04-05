@@ -1,6 +1,8 @@
 import Features from "@/components/Features";
 import HomePage from "@/components/HomePage";
+import HowItWorks from "@/components/HowItWorks";
 import NavBar from "@/components/NavBar";
+import Pricing from "@/components/Pricing";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <NavBar />
       <HomePage />
       <Features />
+      <HowItWorks />
+      <Pricing />
 
       <main className="px-6 py-12">
         <h1 className="text-4xl font-bold mb-4">Welcome to Image AI 👋</h1>
