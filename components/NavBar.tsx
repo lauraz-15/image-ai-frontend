@@ -27,10 +27,10 @@ export default function NavBar() {
           <div className={`close-btn ${isMenuOpen ? "show" : "hide"}`}>
             <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#5627db">
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
               <g id="SVGRepo_iconCarrier">
                 {" "}
-                <path d="M5 5L19 19M5 19L19 5" stroke="#5627db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>{" "}
+                <path d="M5 5L19 19M5 19L19 5" stroke="#5627db" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>{" "}
               </g>
             </svg>
           </div>
@@ -41,16 +41,16 @@ export default function NavBar() {
           <Link href="#home" className="menu-item">
             Home
           </Link>
-          <Link href="#features" className="menu-item">
+          <Link href="/#features" className="menu-item">
             Features
           </Link>
-          <Link href="#pricing" className="menu-item">
+          <Link href="/#pricing" className="menu-item">
             Pricing
           </Link>
-          <Link href="#privacy" className="menu-item">
+          <Link href="/privacy" className="menu-item">
             Privacy
           </Link>
-          <Link href="#terms" className="menu-item">
+          <Link href="/terms" className="menu-item">
             Terms
           </Link>
 
