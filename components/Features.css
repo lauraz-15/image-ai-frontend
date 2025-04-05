@@ -1,0 +1,103 @@
+/* Features.css */
+
+.features-section {
+  padding: 96px 0; /* py-24 */
+  background-color: rgba(10, 10, 27, 0.8); /* bg-deepspace/80 */
+  backdrop-filter: blur(8px); /* backdrop-blur-sm */
+}
+
+.features-container {
+  max-width: 1280px; /* container mx-auto */
+  margin: 0 auto;
+  padding: 0 16px; /* px-4 sm:px-6 lg:px-8 */
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 64px; /* mb-16 */
+}
+
+.features-title {
+  font-size: 2.25rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 16px; /* mb-4 */
+  color: #fff; /* text-white */
+}
+
+@media (min-width: 768px) {
+  .features-title {
+    font-size: 2.5rem; /* md:text-4xl */
+  }
+}
+
+.features-description {
+  font-size: 1rem; /* text-lg */
+  color: rgba(255, 255, 255, 0.7); /* text-white/70 */
+  max-width: 48rem; /* max-w-2xl */
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px; /* gap-8 */
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+  }
+}
+
+.feature-card {
+  animation-name: fade-up;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  background-color: #11142db3;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(86, 39, 219, 0.2);
+}
+
+.feature-icon-bg {
+  background-color: rgba(86, 39, 219, 0.2); /* bg-primary/20 */
+  padding: 12px; /* p-3 */
+  border-radius: 50%; /* rounded-full */
+  width: 48px; /* w-12 */
+  height: 48px; /* h-12 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px; /* mb-4 */
+}
+
+.feature-icon {
+  color: rgb(0, 238, 238); /* text-secondary */
+}
+
+.feature-card-title {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem;
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 8px; /* mb-2 */
+  color: #fff; /* text-white */
+}
+
+.feature-card-text {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left !important;
+}
+
+.features-cta {
+  margin-top: 64px; /* mt-16 */
+  text-align: center;
+}
+
+.features-cta-button {
+  background-color: rgb(86, 39, 219); /* btn-primary */
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  display: inline-block;
+  text-decoration: none;
+}

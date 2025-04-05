@@ -1,0 +1,109 @@
+.navbar {
+  width: 100%;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-primary {
+  color: rgb(86, 39, 219);
+}
+
+.logo-secondary {
+  color: rgb(0, 238, 238);
+}
+
+/* Burger Menu Styles */
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+}
+
+.burger-line {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+.burger-line.open:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-line.open:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: rgb(55, 65, 81);
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* Initially hidden on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    gap: 10px;
+  }
+
+  .navbar-menu.open {
+    display: flex; /* Show menu when open */
+  }
+
+  .burger-menu {
+    display: flex; /* Show burger menu on mobile */
+  }
+}
+
+.menu-item {
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+  color: rgb(86, 39, 219);
+}
+
+.navbar-cta {
+  background-color: rgb(86, 39, 219);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-cta:hover {
+  background-color: rgba(86, 39, 219, 0.9);
+}

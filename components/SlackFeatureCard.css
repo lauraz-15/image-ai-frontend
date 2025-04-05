@@ -1,0 +1,78 @@
+.feature-card-container {
+  animation-name: fade-up;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.feature-card-inner {
+  background-color: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.feature-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.feature-card-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.slack-logo {
+  height: 4rem;
+  width: auto;
+}
+
+.plus-sign {
+  color: rgb(168, 85, 247);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.image-icon-container {
+  background-color: rgb(168, 85, 247);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.image-icon {
+  color: #fff;
+}
+
+.feature-card-text {
+  text-align: center;
+}
+
+.feature-card-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-card-description {
+  color: rgb(156, 163, 175);
+}
+
+.slash-command-container {
+  background-color: rgba(55, 65, 81, 0.9);
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.slash-command {
+  color: #00eeee;
+}

@@ -1,39 +1,54 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react"; // Import useState
+import "./NavBar.css";
 
 export default function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu toggle
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="w-full border-b border-gray-200 bg-white py-4 px-6">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <nav className="navbar">
+      <div className="navbar-container">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-primary">
-          <span className="text-primary">IMAGE</span> <span className="text-secondary">AI</span>
+        <Link href="/" className="navbar-logo">
+          <span className="logo-primary">IMAGE</span> <span className="logo-secondary">AI</span>
         </Link>
 
-        {/* Menu items */}
-        <div className="hidden space-x-8 md:flex text-gray-700">
-          <Link href="#home" className="hover:text-primary">
-            Home
-          </Link>
-          <Link href="#features" className="hover:text-primary">
-            Features
-          </Link>
-          <Link href="#pricing" className="hover:text-primary">
-            Pricing
-          </Link>
-          <Link href="#privacy" className="hover:text-primary">
-            Privacy
-          </Link>
-          <Link href="#terms" className="hover:text-primary">
-            Terms
-          </Link>
+        {/* Burger Menu Button (Mobile) */}
+        <div className="burger-menu" onClick={toggleMenu}>
+          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
+          <div className={`burger-line ${isMenuOpen ? "open" : ""}`}></div>
         </div>
 
-        {/* Call to Action */}
-        <a href="https://slack.com/oauth/v2/authorize?client_id=YOUR_CLIENT_ID&scope=commands" target="_blank" rel="noopener noreferrer" className="rounded-md bg-primary px-5 py-2 font-semibold text-white shadow hover:bg-primary/90 transition">
-          Add to Slack
-        </a>
+        {/* Menu items */}
+        <div className={`navbar-menu ${isMenuOpen ? "open" : ""}`}>
+          <Link href="#home" className="menu-item">
+            Home
+          </Link>
+          <Link href="#features" className="menu-item">
+            Features
+          </Link>
+          <Link href="#pricing" className="menu-item">
+            Pricing
+          </Link>
+          <Link href="#privacy" className="menu-item">
+            Privacy
+          </Link>
+          <Link href="#terms" className="menu-item">
+            Terms
+          </Link>
+
+          {/* Call to Action */}
+          <a href="https://slack.com/oauth/v2/authorize?client_id=YOUR_CLIENT_ID&scope=commands" target="_blank" rel="noopener noreferrer" className="navbar-cta">
+            Add to Slack
+          </a>
+        </div>
       </div>
     </nav>
   );
