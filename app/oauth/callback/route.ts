@@ -1,8 +1,6 @@
 // app/oauth/callback/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
-
-
 export async function GET(req: NextRequest) {
  console.log("strating route function")
   
@@ -13,7 +11,7 @@ export async function GET(req: NextRequest) {
 
 
   if (!code) {
-    return NextResponse.redirect("/error");
+    return NextResponse.redirect("https://www.imageai-slack.com/error"); // Absolute URL
   }
 
   const slackRes = await fetch("https://slack.com/api/oauth.v2.access", {
@@ -30,6 +28,7 @@ export async function GET(req: NextRequest) {
   });
 
   const slackData = await slackRes.json();
+  console.log("Slack API Response:", slackData); // Log the entire response
 
   const teamId = slackData.team?.id;
   if (!teamId) {
