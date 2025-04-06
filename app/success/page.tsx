@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get("session_id");
+  const sessionId = searchParams?.get("session_id");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-50 p-6">
