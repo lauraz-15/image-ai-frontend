@@ -41,7 +41,7 @@ export default function Pricing() {
             <h3 className="plan-title">Pro</h3>
             <p className="plan-description">Ideal for active teams that need more capacity</p>
             <div className="price-container">
-              <span className="price">£9.00</span>
+              <span className="price">£9</span>
               <span className="price-period">/mo</span>
             </div>
             <ul className="plan-features">
@@ -60,7 +60,7 @@ export default function Pricing() {
             <h3 className="plan-title">Unlimited</h3>
             <p className="plan-description">For power users who need unlimited generation</p>
             <div className="price-container">
-              <span className="price">£49.00</span>
+              <span className="price">£49</span>
               <span className="price-period">/mo</span>
             </div>
             <ul className="plan-features">

@@ -38,7 +38,7 @@ export default function NavBar() {
 
         {/* Menu items */}
         <div className={`navbar-menu ${isMenuOpen ? "open" : ""}`}>
-          <Link href="#home" className="menu-item">
+          <Link href="/#home" className="menu-item">
             Home
           </Link>
           <Link href="/#features" className="menu-item">
