@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
       code,
       client_id: process.env.SLACK_CLIENT_ID!,
       client_secret: process.env.SLACK_CLIENT_SECRET!,
-      redirect_uri: "https://localhost:3003/oauth/callback",
+      redirect_uri: "https://www.imageai-slack.com/oauth/callback",
     }),
   });
 
