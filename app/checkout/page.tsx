@@ -8,8 +8,10 @@ export default function CheckoutPage() {
   const [workspaceId, setWorkspaceId] = useState<string | null>(null);
 
   useEffect(() => {
-    const idFromUrl = searchParams.get("workspaceId");
+    const idFromUrl = searchParams?.get("workspaceId"); // Optional chaining
+    if (idFromUrl !== undefined) {
     setWorkspaceId(idFromUrl);
+    }
   }, [searchParams]);
 
   const handleCheckout = async (plan: string) => {
