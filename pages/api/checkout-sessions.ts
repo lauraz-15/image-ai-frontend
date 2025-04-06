@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"; 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -34,8 +35,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         workspaceId,
         plan,
       },
-      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/checkout?cancelled=true`,
+      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/checkout?cancelled=true`,
     });
 
     res.status(200).json({ url: session.url });
