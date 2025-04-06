@@ -30,10 +30,12 @@ export async function GET(req: NextRequest) {
   });
 
   const slackData = await slackRes.json();
-  console.log("Slack API Response:", slackData); // Log the entire response
+
+  console.log("Slack API Response:", JSON.stringify(slackData, null, 2));
 
   const teamId = slackData.team?.id;
-  if (!teamId) {
+  if (!teamId || !teamId.startsWith("T")) {
+    console.error("Invalid or missing team ID:", teamId);
     return NextResponse.redirect("https://www.imageai-slack.com/error");
   }
   // Store the teamId in a cookie or session (or redirect with it)
