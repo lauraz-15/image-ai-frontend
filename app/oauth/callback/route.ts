@@ -32,9 +32,8 @@ export async function GET(req: NextRequest) {
 
   const teamId = slackData.team?.id;
   if (!teamId) {
-    return NextResponse.redirect("/error");
+    return NextResponse.redirect("https://www.imageai-slack.com/error");
   }
-
   // Store the teamId in a cookie or session (or redirect with it)
   const checkoutUrl = `/checkout?plan=${plan}&team_id=${teamId}`;
 
