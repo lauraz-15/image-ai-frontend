@@ -76,3 +76,9 @@
 .slash-command {
   color: #00eeee;
 }
+
+@media (max-width: 768px) {
+  .feature-card-inner {
+    padding: 20px;
+  }
+}
