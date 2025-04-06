@@ -30,16 +30,34 @@ export async function GET(req: NextRequest) {
   });
 
   const slackData = await slackRes.json();
-
-  console.log("Slack API Response:", JSON.stringify(slackData, null, 2));
-
   const teamId = slackData.team?.id;
-  if (!teamId || !teamId.startsWith("T")) {
-    console.error("Invalid or missing team ID:", teamId);
+  
+//   if (!teamId || !teamId.startsWith("T")) {
+//     console.error("Invalid or missing team ID:", teamId);
+//     return NextResponse.redirect("https://www.imageai-slack.com/error");
+//   }
+//   // Store the teamId in a cookie or session (or redirect with it)
+//   const checkoutUrl = `https://www.imageai-slack.com/checkout?plan=${plan}&team_id=${teamId}`;
+
+//   return NextResponse.redirect(checkoutUrl);
+
+ if (!teamId || !plan) {
     return NextResponse.redirect("https://www.imageai-slack.com/error");
   }
-  // Store the teamId in a cookie or session (or redirect with it)
-  const checkoutUrl = `https://www.imageai-slack.com/checkout?plan=${plan}&team_id=${teamId}`;
 
-  return NextResponse.redirect(checkoutUrl);
+  // Call your own API to create a Stripe checkout session
+  const checkoutRes = await fetch("https://www.imageai-slack.com/api/checkout-sessions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ plan, workspaceId: teamId }),
+  });
+
+  const checkoutData = await checkoutRes.json();
+
+  if (!checkoutData.url) {
+    return NextResponse.redirect("https://www.imageai-slack.com/error");
+  }
+
+  return NextResponse.redirect(checkoutData.url);
+
 }
