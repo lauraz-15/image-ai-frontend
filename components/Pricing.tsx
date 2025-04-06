@@ -41,16 +41,16 @@ export default function Pricing() {
             <h3 className="plan-title">Pro</h3>
             <p className="plan-description">Ideal for active teams that need more capacity</p>
             <div className="price-container">
-              <span className="price">£9.50</span>
+              <span className="price">£9.00</span>
               <span className="price-period">/mo</span>
             </div>
             <ul className="plan-features">
               <li className="feature-item">
                 <Check className="feature-icon" />
-                <span className="feature-text">200 images per day</span>
+                <span className="feature-text">100 images per day</span>
               </li>
             </ul>
-            <Link href="/checkout?plan=pro" className="plan-button">
+            <Link href="/start-checkout?plan=pro" className="plan-button">
               Subscribe Now
             </Link>
           </div>
@@ -60,7 +60,7 @@ export default function Pricing() {
             <h3 className="plan-title">Unlimited</h3>
             <p className="plan-description">For power users who need unlimited generation</p>
             <div className="price-container">
-              <span className="price">£49.50</span>
+              <span className="price">£49.00</span>
               <span className="price-period">/mo</span>
             </div>
             <ul className="plan-features">
@@ -69,7 +69,7 @@ export default function Pricing() {
                 <span className="feature-text">Unlimited images</span>
               </li>
             </ul>
-            <Link href="/checkout?plan=unlimited" className="plan-button">
+            <Link href="/start-checkout?plan=unlimited" className="plan-button">
               Subscribe Now
             </Link>
           </div>

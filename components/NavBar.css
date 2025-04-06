@@ -7,6 +7,20 @@
   top: 0;
   left: 0;
   z-index: 100;
+
+  /* backdrop-filter: blur(8px);
+  background-color: rgba(18, 28, 45, 0.9);
+  border-bottom: 1px solid rgba(100, 149, 237, 0.2);
+  transition-duration: 300ms;
+  position: fixed;
+  left: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(100, 149, 237, 0.1), 0 2px 4px -1px rgba(100, 149, 237, 0.1);
+  top: 0;
+  transition-property: all;
+  width: 100%;
+  z-index: 50; */
 }
 
 .navbar-container {
