@@ -5,7 +5,9 @@ export async function GET(req: NextRequest) {
  console.log("strating route function")
   
   const code = req.nextUrl.searchParams.get("code");
-  const plan = req.nextUrl.searchParams.get("plan");
+
+  const plan = req.nextUrl.searchParams.get("state");
+
   console.log('Plan in callback:', plan); // Check if the plan is correct in the callback
   console.log('Code in callback:', code); // Check if the code is valid
 
