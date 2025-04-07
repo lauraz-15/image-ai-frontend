@@ -1,7 +1,7 @@
 "use client";
 
-import { Image as LucideImage } from "lucide-react";
-import "./SlackFeatureCard.css"; // Import the CSS file
+import Image from "next/image";
+import "./SlackFeatureCard.css";
 
 export default function SlackFeatureCard() {
   return (
@@ -13,7 +13,7 @@ export default function SlackFeatureCard() {
             <img src="https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg" alt="Slack Logo" className="slack-logo" />
             <div className="plus-sign">+</div>
             <div className="image-icon-container">
-              <LucideImage size={40} className="image-icon" />
+              <Image src="/logo.png" alt="Your Logo" width={70} height={70} />
             </div>
           </div>
 

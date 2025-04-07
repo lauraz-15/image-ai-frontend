@@ -34,14 +34,12 @@
 }
 
 .plus-sign {
-  color: rgb(168, 85, 247);
+  color: #f5f5f5;
   font-size: 2.5rem;
   font-weight: 700;
 }
 
 .image-icon-container {
-  background-color: rgb(168, 85, 247);
-  padding: 12px;
   border-radius: 12px;
 }
 
