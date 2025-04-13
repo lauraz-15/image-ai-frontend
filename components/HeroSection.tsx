@@ -1,7 +1,7 @@
 // app/page.tsx or wherever your homepage is
 
 import SlackFeatureCard from "./SlackFeaturedCard";
-import "./HeroSection.css"; // Import the CSS file
+import "./HeroSection.css";
 
 export default function HeroSection() {
   return (
