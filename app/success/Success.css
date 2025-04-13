@@ -41,7 +41,6 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   gap: 48px;
   padding: 96px 48px;
@@ -58,4 +57,9 @@ h2 {
 
 .content p {
   font-size: 1.5rem;
+}
+
+.plan-name {
+  font-weight: 800;
+  text-transform: capitalize;
 }

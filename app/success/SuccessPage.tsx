@@ -23,7 +23,12 @@ export default function SuccessPage() {
         {/* Content */}
         <div className="hero-content">
           <h2>Payment Successful</h2>
-          {plan && <p>You are now subscribed to the {plan} plan.</p>} {/* Display the plan */}
+          {plan && (
+            <p>
+              You are now subscribed to the <span className="plan-name">{plan} plan</span>.
+            </p>
+          )}{" "}
+          {/* Display the plan */}
         </div>
       </section>
       <Footer />
