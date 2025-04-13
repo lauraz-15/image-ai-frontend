@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"; 
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
