@@ -28,7 +28,7 @@ export default function SuccessPage() {
             Go to any Slack channel where you installed the app, and type <code className="slash-command">/image</code> to start creating!
           </p>
           <p>
-            Example: <code className="slash-command">/image dogs baking a cake in the kitchen</code>
+            Example: <code className="slash-command">/image dogs baking a cake in the kitchen</code> and press <strong>Enter</strong>.
           </p>
         </div>
       </section>
