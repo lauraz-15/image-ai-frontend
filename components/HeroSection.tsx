@@ -23,10 +23,10 @@ export default function HeroSection() {
             Transform your ideas into stunning images directly in Slack. Just type <code>/image</code> and watch the magic happen.
           </p>
           <div className="hero-buttons">
-            <a href="#" className="add-to-slack-button">
+            <a href="https://slack.com/oauth/v2/authorize?client_id=8389664538785.8381861548514&scope=chat:write,chat:write.customize,chat:write.public,commands,files:write,im:write,incoming-webhook,users:read" className="add-to-slack-button">
               Add to Slack
             </a>
-            <a href="#" className="learn-more-button">
+            <a href="#features" className="learn-more-button">
               Learn More
             </a>
           </div>

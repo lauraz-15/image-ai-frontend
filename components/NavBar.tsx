@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Link from "next/link";
@@ -16,12 +14,12 @@ export default function NavBar() {
   };
   const closeMenu = () => {
     setIsMenuOpen(false);
-    document.body.style.overflow = "auto"; 
-  }
+    document.body.style.overflow = "auto";
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) { 
+      if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -74,7 +72,7 @@ export default function NavBar() {
             Terms
           </Link>
 
-          <a href="https://slack.com/oauth/v2/authorize?client_id=YOUR_CLIENT_ID&scope=commands" target="_blank" rel="noopener noreferrer" className="navbar-cta">
+          <a href="https://slack.com/oauth/v2/authorize?client_id=8389664538785.8381861548514&scope=chat:write,chat:write.customize,chat:write.public,commands,files:write,im:write,incoming-webhook,users:read" target="_blank" rel="noopener noreferrer" className="navbar-cta">
             Add to Slack
           </a>
         </div>
