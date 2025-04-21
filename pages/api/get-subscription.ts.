@@ -1,0 +1,25 @@
+// pages/api/get-subscription.js
+export default async (req, res) => {
+  try {
+    // Fetch subscription data from Firestore or wherever it's stored
+    const subscription = await getSubscriptionFromDB(); // Implement this function
+    res.status(200).json(subscription);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch subscription data' });
+  }
+};
+
+// pages/api/cancel-subscription.js
+export default async (req, res) => {
+  if (req.method === 'POST') {
+    try {
+      // Handle subscription cancellation logic here
+      await cancelSubscriptionInDB(); // Implement this function
+      res.status(200).json({ message: 'Subscription cancelled successfully' });
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to cancel subscription' });
+    }
+  } else {
+    res.status(405).json({ error: 'Method Not Allowed' });
+  }
+};

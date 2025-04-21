@@ -31,6 +31,9 @@ const Footer = () => {
                   Pricing
                 </a>
               </li>
+              <li>
+                <Link href="/manage-subscription">Manage Subscription</Link>
+              </li>
             </ul>
           </div>
 
