@@ -58,8 +58,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-2">
-              <li className="text-white/70">Email: support@imageai.app</li>
-              <li className="text-white/70">Twitter: @imageai_app</li>
+              <li className="text-white/70">Email: info@imageai-slack.com</li>
             </ul>
           </div>
         </div>
