@@ -4,26 +4,25 @@ import HeroSection from "@/components/HeroSection";
 import HowItWorks from "@/components/HowItWorks";
 import NavBar from "@/components/NavBar";
 import Pricing from "@/components/Pricing";
-import Head from "next/head";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-867VHRZNV2"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(...args) {
-          window.dataLayer.push(args);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-867VHRZNV2');
-      `,
-          }}
-        />
-      </Head>
+      {/* Google Analytics Scripts */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-867VHRZNV2" strategy="afterInteractive" />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-867VHRZNV2');
+          `,
+        }}
+      />
 
       <NavBar />
       <HeroSection />
