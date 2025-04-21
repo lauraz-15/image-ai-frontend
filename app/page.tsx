@@ -15,9 +15,8 @@ export default function Home() {
           dangerouslySetInnerHTML={{
             __html: `
         window.dataLayer = window.dataLayer || [];
-        function gtag(){
-          // @ts-ignore
-          dataLayer.push(arguments);
+        function gtag(...args) {
+          window.dataLayer.push(args);
         }
         gtag('js', new Date());
         gtag('config', 'G-867VHRZNV2');
