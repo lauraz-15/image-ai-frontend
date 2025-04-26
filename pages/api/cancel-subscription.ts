@@ -1,10 +1,20 @@
-import { NextRequest, NextResponse } from "next/server";
+// pages/api/cancel-subscription.ts
+import type { NextApiRequest, NextApiResponse } from "next";
 
-// Helper function to call the Node.js backend for cancellation
-async function cancelSubscriptionInBackend(workspaceId: string) {
-  console.log("cancel sub fun runs");
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", ["POST"]);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
+
   try {
-    // Call your Node.js backend to handle cancellation logic in Firestore
+    const { workspaceId } = req.body;
+
+    if (!workspaceId) {
+      return res.status(400).json({ error: "Missing workspaceId in request body" });
+    }
+
+    // Assuming you call your backend server to cancel the subscription
     const response = await fetch(`https://image-ai-backend-swgl.onrender.com/cancel-subscription`, {
       method: "POST",
       headers: {
@@ -13,37 +23,15 @@ async function cancelSubscriptionInBackend(workspaceId: string) {
       body: JSON.stringify({ workspaceId }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error("Failed to cancel subscription in the backend");
+      return res.status(response.status).json({ error: data.error || "Failed to cancel subscription" });
     }
 
-    return await response.json(); // e.g., { success: true }
-  } catch (error) {
-    console.error("Error canceling subscription:", error);
-    throw new Error("Error canceling subscription");
-  }
-}
-
-export async function POST(req: NextRequest) {
-  // Get workspaceId from cookies
-  const workspaceId = req.cookies.get("slack_team_id")?.value;
-
-  if (!workspaceId) {
-    return NextResponse.json({ error: "Workspace ID not found" }, { status: 400 });
-  }
-
-  try {
-    const result = await cancelSubscriptionInBackend(workspaceId);
-
-    // If cancellation was successful
-    if (result.success) {
-      return NextResponse.json({ message: "Subscription cancelled successfully" });
-    } else {
-      return NextResponse.json({ error: "Failed to cancel subscription" }, { status: 500 });
-    }
+    return res.status(200).json(data);
   } catch (error: any) {
-    console.error("Error canceling subscription:", error);
-
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Error in cancel-subscription API:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 }
