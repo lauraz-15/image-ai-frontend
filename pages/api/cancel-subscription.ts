@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Helper function to call the Node.js backend for cancellation
 async function cancelSubscriptionInBackend(workspaceId: string) {
+  console.log("cancel sub fun runs");
   try {
     // Call your Node.js backend to handle cancellation logic in Firestore
     const response = await fetch(`https://image-ai-backend-swgl.onrender.com/cancel-subscription`, {
