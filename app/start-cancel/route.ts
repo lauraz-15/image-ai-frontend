@@ -1,19 +1,76 @@
-import { NextRequest, NextResponse } from "next/server";
+// app/cancel/page.tsx
 
-export async function GET(req: NextRequest) {
-  console.log("User landed on start cancel");
+"use client";
 
-  const workspaceId = req.cookies.get("slack_team_id")?.value;
-  console.log("WorkspaceId:", workspaceId);
+import { useEffect, useState } from "react";
 
-  if (!workspaceId) {
-    const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
-    const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=cancel`;
+export default function CancelPage() {
+  const [workspaceId, setWorkspaceId] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-    console.log("No workspace id found, redirecting to Slack OAuth:", slackOAuthUrl);
-    return NextResponse.redirect(slackOAuthUrl);
-  }
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("workspaceId");
+    setWorkspaceId(id);
+  }, []);
 
-  console.log("Workspace id found, redirecting to /cancel");
-  return NextResponse.redirect(`/cancel`);
+  const handleCancel = async () => {
+    if (!workspaceId) return;
+
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/cancel-subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ workspaceId }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Error cancelling subscription:", err);
+      setStatus("error");
+    }
+  };
+
+  return (
+    <div style={{ padding: "2rem" }}>
+      <h1>Cancel Subscription</h1>
+
+      {workspaceId ? (
+        <>
+          <p>
+            You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
+          </p>
+
+          <button
+            onClick={handleCancel}
+            style={{
+              marginTop: "1rem",
+              padding: "0.5rem 1rem",
+              backgroundColor: "red",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+            disabled={status === "loading"}
+          >
+            {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
+          </button>
+
+          {status === "success" && <p style={{ color: "green", marginTop: "1rem" }}>Subscription cancelled successfully!</p>}
+          {status === "error" && <p style={{ color: "red", marginTop: "1rem" }}>Failed to cancel subscription. Please try again.</p>}
+        </>
+      ) : (
+        <p>Loading workspace ID...</p>
+      )}
+    </div>
+  );
 }
