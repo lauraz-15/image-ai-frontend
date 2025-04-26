@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
     const workspaceId = req.cookies.get("slack_team_id")?.value;
     if (!workspaceId) {
       const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
-      const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=manage-subscription`;
+      const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=8389664538785.8381861548514&scope=commands,users:read&redirect_uri=${redirectUri}&state=manage-subscription`;
       return NextResponse.redirect(slackOAuthUrl);
     }
 
