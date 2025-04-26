@@ -40,7 +40,7 @@ export default function CancelPage() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div>
       <h1>Cancel Subscription</h1>
 
       {workspaceId ? (
@@ -49,19 +49,7 @@ export default function CancelPage() {
             You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
           </p>
 
-          <button
-            onClick={handleCancel}
-            style={{
-              marginTop: "1rem",
-              padding: "0.5rem 1rem",
-              backgroundColor: "red",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
-            disabled={status === "loading"}
-          >
+          <button onClick={handleCancel} disabled={status === "loading"}>
             {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
           </button>
 
