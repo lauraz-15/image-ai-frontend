@@ -44,7 +44,7 @@ export default function SuccessPage() {
       // No workspace ID → redirect user to Slack OAuth
       console.log("no workspace id, redirecting to oauth");
       const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
-      const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.NEXT_PUBLIC_SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=cancel`;
+      const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=cancel`;
       window.location.href = slackOAuthUrl;
       return;
     }
