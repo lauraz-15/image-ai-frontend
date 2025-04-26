@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
   response.cookies.set("slack_team_id", teamId, { path: "/", httpOnly: true });
 
   if (state === "cancel") {
-    response.headers.set("Location", "https://www.imageai-slack.com/cancel");
+    response.headers.set("Location", `https://www.imageai-slack.com/cancel?workspaceId=${teamId}`);
     return response;
   } else if (state === "pro" || state === "unlimited") {
     // Continue to create checkout session
