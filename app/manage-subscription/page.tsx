@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function SuccessPage() {
   const [subscription, setSubscription] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true); // State to track loading
 
   useEffect(() => {
     // Fetch user subscription data from your backend
@@ -14,9 +15,16 @@ export default function SuccessPage() {
       try {
         const res = await fetch("/api/get-subscription"); // Your API
         const data = await res.json();
-        setSubscription(data.plan); // Assuming it returns { plan: "pro" } or similar
+        console.log("Subscription Data: ", data); // Log to inspect the data structure
+        if (data && data.plan) {
+          setSubscription(data.plan); // Assuming it returns { plan: "pro" } or similar
+        } else {
+          setSubscription(null);
+        }
       } catch (error) {
         console.error("Error fetching subscription data", error);
+      } finally {
+        setLoading(false); // Set loading to false when request is done
       }
     };
     fetchSubscription();
@@ -74,13 +82,19 @@ export default function SuccessPage() {
         <div className="hero-content">
           <div>
             <h1>Manage Your Subscription</h1>
-            {subscription ? (
-              <div>
-                <p>Current Plan: {subscription}</p>
-                <button onClick={cancelSubscription}>Cancel Subscription</button>
-              </div>
+            {loading ? (
+              <p>Loading subscription information...</p>
             ) : (
-              <p>Your subscription has been canceled.</p>
+              <>
+                {subscription ? (
+                  <div>
+                    <p>Current Plan: {subscription}</p>
+                    <button onClick={cancelSubscription}>Cancel Subscription</button>
+                  </div>
+                ) : (
+                  <p>Your subscription has been canceled.</p>
+                )}
+              </>
             )}
           </div>
         </div>
