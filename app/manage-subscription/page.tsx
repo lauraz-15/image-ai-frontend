@@ -42,6 +42,7 @@ export default function SuccessPage() {
 
     if (!workspaceId) {
       // No workspace ID → redirect user to Slack OAuth
+      console.log("no workspace id, redirecting to oauth");
       const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
       const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.NEXT_PUBLIC_SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=cancel`;
       window.location.href = slackOAuthUrl;
@@ -81,7 +82,7 @@ export default function SuccessPage() {
         {/* Content */}
         <div className="hero-content">
           <div>
-            <h1>Manage Your Subscription</h1>
+            <h1>Manage Your Subscription:</h1>
             {loading ? (
               <p>Loading subscription information...</p>
             ) : (
@@ -92,7 +93,7 @@ export default function SuccessPage() {
                     <button onClick={cancelSubscription}>Cancel Subscription</button>
                   </div>
                 ) : (
-                  <p>Your subscription has been canceled.</p>
+                  <button onClick={cancelSubscription}>Cancel Subscription</button>
                 )}
               </>
             )}
