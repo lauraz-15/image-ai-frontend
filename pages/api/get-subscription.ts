@@ -1,7 +1,7 @@
 // app/api/get-subscription/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export default async function handler(req: NextRequest) {
   try {
     const workspaceId = req.cookies.get("slack_team_id")?.value;
     if (!workspaceId) {

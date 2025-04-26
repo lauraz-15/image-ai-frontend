@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 async function cancelSubscriptionInBackend(workspaceId: string) {
   try {
     // Call your Node.js backend to handle cancellation logic in Firestore
-    const response = await fetch(`${process.env.BACKEND_URL}/cancel-subscription`, {
+    const response = await fetch(`https://image-ai-backend-swgl.onrender.com/cancel-subscription`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
