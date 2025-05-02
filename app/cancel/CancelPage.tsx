@@ -3,7 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./canel.css";
+import "./cancel.css";
 
 export default function CancelPage() {
   const [workspaceId, setWorkspaceId] = useState<string | null>(null);
