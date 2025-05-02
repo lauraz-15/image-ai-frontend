@@ -85,8 +85,11 @@ export default function SuccessPage() {
 
         {/* Content */}
         <div className="hero-content">
-          <div>
-            <button onClick={cancelSubscription}>Cancel Subscription</button>
+          <div className="grey-container">
+            <p>When you cancel your subscription, your next scheduled payment and all future payments will be stopped. However, your current plan will remain active until your next payment date, so you can continue to enjoy its benefits until then.</p>
+            <button className="cancel-button" onClick={cancelSubscription}>
+              Cancel Subscription
+            </button>
           </div>
         </div>
       </section>

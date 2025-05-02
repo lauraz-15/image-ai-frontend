@@ -51,24 +51,24 @@ export default function CancelPage() {
 
         {/* Content */}
         <div className="hero-content">
-          <h1>Cancel Subscription</h1>
+          <div className="grey-container">
+            {workspaceId ? (
+              <>
+                <p>
+                  You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
+                </p>
 
-          {workspaceId ? (
-            <>
-              <p>
-                You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
-              </p>
+                <button className="cancel-button" onClick={handleCancel} disabled={status === "loading"}>
+                  {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
+                </button>
 
-              <button onClick={handleCancel} disabled={status === "loading"}>
-                {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
-              </button>
-
-              {status === "success" && <p style={{ color: "green", marginTop: "1rem" }}>Subscription cancelled successfully!</p>}
-              {status === "error" && <p style={{ color: "red", marginTop: "1rem" }}>Failed to cancel subscription. Please try again.</p>}
-            </>
-          ) : (
-            <p>Loading workspace ID...</p>
-          )}
+                {status === "success" && <p>Subscription cancelled successfully!</p>}
+                {status === "error" && <p>Failed to cancel subscription. Please try again.</p>}
+              </>
+            ) : (
+              <p>Loading workspace ID...</p>
+            )}
+          </div>
         </div>
       </section>
     </div>
