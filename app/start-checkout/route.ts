@@ -9,14 +9,16 @@ export async function GET(req: NextRequest) {
   // Ideally you'd check cookies or session here
   const workspaceId = req.cookies.get("slack_team_id")?.value;
   console.log("workspaceId:", workspaceId);
-  if (!workspaceId) {
-    const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
-    const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=${plan}`;
+  // if (!workspaceId) {
 
-    console.log("no workspace id, attempting to redirect to :", slackOAuthUrl);
-    return NextResponse.redirect(slackOAuthUrl);
-  }
+  // }
 
-  console.log("found workspace id redirecting to:", `https://www.imageai-slack.com/checkout?plan=${plan}`);
-  return NextResponse.redirect(`https://www.imageai-slack.com/checkout?plan=${plan}`);
+  const redirectUri = `https://www.imageai-slack.com/oauth/callback`;
+  const slackOAuthUrl = `https://slack.com/oauth/v2/authorize?client_id=${process.env.SLACK_CLIENT_ID}&scope=commands,users:read&redirect_uri=${redirectUri}&state=${plan}`;
+
+  console.log("no workspace id, attempting to redirect to :", slackOAuthUrl);
+  return NextResponse.redirect(slackOAuthUrl);
+
+  // console.log("found workspace id redirecting to:", `https://www.imageai-slack.com/checkout?plan=${plan}`);
+  // return NextResponse.redirect(`https://www.imageai-slack.com/checkout?plan=${plan}`);
 }
