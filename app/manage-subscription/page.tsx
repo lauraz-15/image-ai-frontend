@@ -82,21 +82,7 @@ export default function SuccessPage() {
         {/* Content */}
         <div className="hero-content">
           <div>
-            <h1>Manage Your Subscription:</h1>
-            {loading ? (
-              <p>Loading subscription information...</p>
-            ) : (
-              <>
-                {subscription ? (
-                  <div>
-                    <p>Current Plan: {subscription}</p>
-                    <button onClick={cancelSubscription}>Cancel Subscription</button>
-                  </div>
-                ) : (
-                  <button onClick={cancelSubscription}>Cancel Subscription</button>
-                )}
-              </>
-            )}
+            <button onClick={cancelSubscription}>Cancel Subscription</button>
           </div>
         </div>
       </section>
