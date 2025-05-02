@@ -17,6 +17,6 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(slackOAuthUrl);
   }
 
-  console.log("found workspace id redirecting to:", `/checkout?plan=${plan}`);
-  return NextResponse.redirect(`/checkout?plan=${plan}`);
+  console.log("found workspace id redirecting to:", `https://www.imageai-slack.com/checkout?plan=${plan}`);
+  return NextResponse.redirect(`https://www.imageai-slack.com/checkout?plan=${plan}`);
 }

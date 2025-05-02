@@ -30,7 +30,7 @@ export default function Pricing() {
                 <span className="feature-text">10 images per day</span>
               </li>
             </ul>
-            <a href="https://slack.com/oauth/v2/authorize?client_id=YOUR_SLACK_CLIENT_ID&scope=commands" className="plan-button" rel="noopener noreferrer">
+            <a href="https://slack.com/oauth/v2/authorize?client_id=8389664538785.8381861548514&scope=chat:write,chat:write.customize,chat:write.public,commands,files:write,im:write,incoming-webhook,users:read" className="plan-button" rel="noopener noreferrer">
               Add to Slack
             </a>
           </div>
