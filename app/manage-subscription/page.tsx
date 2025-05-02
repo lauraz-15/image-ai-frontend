@@ -30,6 +30,10 @@ export default function SuccessPage() {
     fetchSubscription();
   }, []);
 
+  useEffect(() => {
+    fetch("https://image-ai-backend-swgl.onrender.com/ping"); // a no-op route that just returns 200 OK
+  }, []);
+
   const cancelSubscription = async () => {
     // Read workspaceId from cookies
     const cookies = document.cookie.split(";").reduce((acc: any, cookie) => {
