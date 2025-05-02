@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import "./canel.css";
 
 export default function CancelPage() {
   const [workspaceId, setWorkspaceId] = useState<string | null>(null);
@@ -41,24 +42,35 @@ export default function CancelPage() {
 
   return (
     <div>
-      <h1>Cancel Subscription</h1>
+      <section className="hero-section">
+        {/* Background image */}
+        <div className="hero-background-container">
+          <img src="/hero-bg.jpg" alt="hero background" className="hero-background-image" />
+          <div className="hero-gradient-overlay" />
+        </div>
 
-      {workspaceId ? (
-        <>
-          <p>
-            You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
-          </p>
+        {/* Content */}
+        <div className="hero-content">
+          <h1>Cancel Subscription</h1>
 
-          <button onClick={handleCancel} disabled={status === "loading"}>
-            {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
-          </button>
+          {workspaceId ? (
+            <>
+              <p>
+                You're cancelling the subscription for workspace: <strong>{workspaceId}</strong>
+              </p>
 
-          {status === "success" && <p style={{ color: "green", marginTop: "1rem" }}>Subscription cancelled successfully!</p>}
-          {status === "error" && <p style={{ color: "red", marginTop: "1rem" }}>Failed to cancel subscription. Please try again.</p>}
-        </>
-      ) : (
-        <p>Loading workspace ID...</p>
-      )}
+              <button onClick={handleCancel} disabled={status === "loading"}>
+                {status === "loading" ? "Cancelling..." : "Confirm Cancel"}
+              </button>
+
+              {status === "success" && <p style={{ color: "green", marginTop: "1rem" }}>Subscription cancelled successfully!</p>}
+              {status === "error" && <p style={{ color: "red", marginTop: "1rem" }}>Failed to cancel subscription. Please try again.</p>}
+            </>
+          ) : (
+            <p>Loading workspace ID...</p>
+          )}
+        </div>
+      </section>
     </div>
   );
 }
